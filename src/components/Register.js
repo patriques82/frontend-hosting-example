@@ -29,7 +29,7 @@ const Register = () => {
     <>
       <h2>Register</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="registerEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -40,7 +40,7 @@ const Register = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="registerPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"

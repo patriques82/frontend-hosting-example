@@ -12,7 +12,7 @@ const Login = () => {
   const [user, setUser] = useState("");
 
   const endpoint = useContext(EnvironmentContext);
-  const url = `${endpoint}/register`;
+  const url = `${endpoint}/login`;
 
   useEffect(() => {
     const userEmail = cookies.get("USER_EMAIL");
@@ -30,6 +30,7 @@ const Login = () => {
       body: JSON.stringify({ email, password }),
     });
     const { data, token } = await result.json();
+    console.log("data", data, "token", token);
     cookies.set("TOKEN", token);
     cookies.set("USER_EMAIL", data.email);
     window.location.href = "/"; // force refresh
@@ -39,7 +40,7 @@ const Login = () => {
     <>
       <h2>Login</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="loginEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -50,7 +51,7 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="loginPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"

@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [token, setToken] = useState(null);
 
   const endpoint = useContext(EnvironmentContext);
-  const url = `${endpoint}/unsecured`;
+  const url = `${endpoint}/secured`;
 
   useEffect(() => {
     const TOKEN = cookies.get("TOKEN");

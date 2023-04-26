@@ -12,7 +12,7 @@ function App() {
     process.env.REACT_APP_API_ENDPOINT ||
     "https://backend-hosting-example.onrender.com";
   return (
-    <EnvironmentContext.Provider api_endpoint={API_ENDPOINT}>
+    <EnvironmentContext.Provider value={API_ENDPOINT}>
       <Container>
         <Navbar />
         <Routes>
