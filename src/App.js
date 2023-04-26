@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import FreeComponent from "./components/FreeComponent";
+import Home from "./components/Home";
+import DashBoard from "./components/Dashboard";
+import EnvironmentContext from "./components/EnvironmentContext";
 
 function App() {
+  const API_ENDPOINT =
+    process.env.REACT_APP_API_ENDPOINT ||
+    "https://backend-hosting-example.onrender.com";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EnvironmentContext.Provider api_endpoint={API_ENDPOINT}>
+      <Container>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/free" element={<FreeComponent />} />
+          <Route exact path="/dashboard" element={<DashBoard />} />
+        </Routes>
+      </Container>
+    </EnvironmentContext.Provider>
   );
 }
 
