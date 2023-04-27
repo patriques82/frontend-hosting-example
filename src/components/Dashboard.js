@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Button onClick={clickHandler}>Usecured API call</Button>
+      <Button onClick={clickHandler}>Secured API call (with token)</Button>
       {backendMessage ? (
         <p className="text-success">{backendMessage}</p>
       ) : (
